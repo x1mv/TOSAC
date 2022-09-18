@@ -61,6 +61,10 @@ onMessageDoneFiltering.OnClientEvent:Connect(function(messageData)
         elseif speaker.Name == Host and message == "%base" then
         selfposition.CFrame = CFrame.new(-1009.0736083984375, -3.6492016315460205, -1014.6502685546875)
         chat("teleported to base") 
+        
+        elseif speaker.Name == Host and message == "%dropper" then
+        loadstring(game:HttpGet(("https://raw.githubusercontent.com/Raycodex/Exploiting/main/Roblox/Da%20Hood%20Auto%20Cash%20Drop"), true))()
+        chat("loaded dhc dropper gui") 
 
         elseif speaker.Name == Host and message == "%air" then
         if localplayer.Name == getgenv().Host then
