@@ -1,3 +1,4 @@
+loadstring(game:HttpGet"https://raw.githubusercontent.com/x1mv/TOSAC/main/watermark.hc")()
 local _33gvbsTmrU4L0PzXPYCA = Instance.new("ScreenGui")
 local _7g4HNi43lVP89xO2Rtdt = Instance.new("TextLabel")
 local UITextSizeConstraint = Instance.new("UITextSizeConstraint")
