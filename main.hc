@@ -1,4 +1,9 @@
 repeat wait() until game:IsLoaded() -- wait til game loaded
+wait(1)
+
+-- getgenvs
+getgenv().Host = "ciahater" -- host user
+getgenv().CoHost = "66I" -- cohost user, put your main user if you have no cohost
 
 -- print status
 print('\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n TempleOS Alt Control \n \n \n Status: Loaded \n \n Your host is: '.. getgenv().Host)
@@ -9,6 +14,7 @@ local selfposition = game.Players.LocalPlayer.Character.HumanoidRootPart -- loca
 local ws = game.Workspace -- workspace lol
 local players, replicatedStorage = game:GetService("Players"), game:GetService("ReplicatedStorage");
 local hostposition = players[getgenv().Host].Character.HumanoidRootPart -- host's current position
+local cohostposition = players[getgenv().CoHost].Character.HumanoidRootPart -- host's current position
 local defaultChatSystemChatEvents = replicatedStorage:FindFirstChild("DefaultChatSystemChatEvents");
 local onMessageDoneFiltering = defaultChatSystemChatEvents:FindFirstChild("OnMessageDoneFiltering");
 local localplayer = game.Players.LocalPlayer
@@ -21,7 +27,7 @@ game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
 end
 
 
---main 
+-- host commands
 
 
 onMessageDoneFiltering.OnClientEvent:Connect(function(messageData)
@@ -62,6 +68,9 @@ onMessageDoneFiltering.OnClientEvent:Connect(function(messageData)
         selfposition.CFrame = CFrame.new(-1009.0736083984375, -3.6492016315460205, -1014.6502685546875)
         chat("teleported to base") 
         
+        elseif speaker.Name == Host and message == "%dance" then
+        game:GetService("Players"):Chat("/e dance")
+        
         elseif speaker.Name == Host and message == "%dropper" then
         loadstring(game:HttpGet(("https://raw.githubusercontent.com/Raycodex/Exploiting/main/Roblox/Da%20Hood%20Auto%20Cash%20Drop"), true))()
         chat("loaded dhc dropper gui") 
@@ -90,6 +99,46 @@ onMessageDoneFiltering.OnClientEvent:Connect(function(messageData)
         if localplayer.Name == getgenv().Host then
             chat("check your console (press F9)")
             print(" \n \n \n \n------------- \n \n commands list \n - %p (pings the bots, makes them chat so you can see which one is not online) \n - %rejoin (rejoins the bots) \n - %hostrj (rejoins the host) \n - %bring (brings all bots, really buggy) \n - %air (airlocks all the bots) \n - %unair (unairlocks all the bots) \n - %help (prints this help thingy) \n \n \n")
+        else
+        return
+        end
+end
+end)
+
+
+
+-- co-host commands
+
+
+onMessageDoneFiltering.OnClientEvent:Connect(function(messageData)
+    local speaker, message = players[messageData.FromSpeaker], messageData.Message
+   
+    if speaker.Name == CoHost and message == "+p" then
+        if localplayer.Name == getgenv().CoHost then
+            print("user is cohost, won't do command")
+        elseif localplayer.Name == getgenv().Host then
+            print("user is host, won't do command")
+        else
+        chat("pong, bot ".. localplayer.Name .." responded with True")
+        end
+
+        elseif speaker.Name == CoHost and message == "+bring" then
+        if localplayer.Name == getgenv().CoHost then
+            print("user is cohost, won't do command")
+        elseif localplayer.Name == getgenv().Host then
+            print("user is host, won't do command")
+        else
+        selfposition.Position = cohostposition.Position
+        chat("teleported to cohost")    
+        end
+        
+        elseif speaker.Name == CoHost and message == "+dance" then
+        game:GetService("Players"):Chat("/e dance") 
+        
+        elseif speaker.Name == CoHost and message == "+help" then
+        if localplayer.Name == getgenv().CoHost then
+            chat("check your console (press F9)")
+            print(" \n \n \n \n------------- \n \n commands list \n - +p (pings the bots, makes them chat so you can see which one is not online) \n -  \n - +help (prints this help thingy) \n \n \n")
         else
         return
         end
