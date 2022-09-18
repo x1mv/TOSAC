@@ -1,10 +1,6 @@
 repeat wait() until game:IsLoaded() -- wait til game loaded
 wait(1)
 
--- getgenvs
-getgenv().Host = "ciahater" -- host user
-getgenv().CoHost = "66I" -- cohost user, put your main user if you have no cohost
-
 -- print status
 print('\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n TempleOS Alt Control \n \n \n Status: Loaded \n \n Your host is: '.. getgenv().Host)
 
