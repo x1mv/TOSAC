@@ -70,9 +70,9 @@ onMessageDoneFiltering.OnClientEvent:Connect(function(messageData)
         if localplayer.Name == getgenv().Host then
             print("user is host, won't do command")
         else
-    	lp.CFrame = CFrame.new(lp.Position.X, 35, lp.Position.Z)
+    	selfposition.CFrame = CFrame.new(selfposition.Position.X, 35, selfposition.Position.Z)
     	wait(0.5)
-    	lp.Anchored = true
+    	selfposition.Anchored = true
         chat("airlock enabled") 
         end
         
@@ -80,9 +80,9 @@ onMessageDoneFiltering.OnClientEvent:Connect(function(messageData)
         if localplayer.Name == getgenv().Host then
             print("user is host, won't do command")
         else
-    	lp.CFrame = CFrame.new(lp.Position.X, 0, lp.Position.Z)
+    	selfposition.CFrame = CFrame.new(selfposition.Position.X, 0, selfposition.Position.Z)
     	wait(0.5)
-    	lp.Anchored = false
+    	selfposition.Anchored = false
         chat("airlock disabled") 
         end
         
